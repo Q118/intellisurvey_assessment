@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('input[type="button"]').click(function () {
+                var sum = 0, count = 0, result;
+
+                // now loop through each text input, adding to our sum if we have a value.
+                $('input[type="text"]').each(function () {
+                    var val = Number($(this).val());
+                    if (val) {
+                        sum += Number(val);
+                        count++;
+                    }
+                });
+                result = (count > 0) ? sum / count : 'no values found';
+                $('#result').html(result);
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    Enter numbers to get the average:
+    <br />1. <input type="text" size="10" />
+    <br />2. <input type="text" size="10" />
+    <br />3. <input type="text" size="10" />
+    <br />4. <input type="text" size="10" />
+    <br />5. <input type="text" size="10" />
+    <br />6. <input type="text" size="10" />
+    <br />7. <input type="text" size="10" />
+    <br />8. <input type="text" size="10" />
+    <br />9. <input type="text" size="10" />
+    <br />10. <input type="text" size="10" />
+    <hr />
+    <input type="button" value="Calculate the Average" id="calc_button" />
+    <div id="result"></div>
+</body>
+
+</html>

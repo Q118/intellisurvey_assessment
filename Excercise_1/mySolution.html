@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('input[type="button"]').click(function () {
+                var sum = 0, count = 0, result;
+                // now loop through each text input, adding to our sum if we have a value.
+                $('input[type="number"]').each(function () {
+                    //subsequently changing the above from text to number (see below comments for the why)
+                    var val = Number($(this).val());
+                    if (val) {
+                        sum += Number(val);
+                        count++;
+                    }
+                });
+                result = (count > 0) ? sum / count : 'no values found';
+                $('#result').html(result);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Here is where I found a bug. 
+    The original had every input as type "text".
+    This must be changed to type "number".
+    If we left at as text, than letters and characters can be entered into the inputs and our function does not account for that, 
+    this would confuse the end-users of this application. 
+    For example, if I was an end-user, I may think that this application 
+    would let me enter a bunch of alphabet letters and tell me which letter appears the most.
+    In actuality, it is meant to calculate average of integers only.  Hence why I change it to "number"  -->
+    Enter numbers to get the average:
+    <br />1. <input type="number" size="10" />
+    <br />2. <input type="number" size="10" />
+    <br />3. <input type="number" size="10" />
+    <br />4. <input type="number" size="10" />
+    <br />5. <input type="number" size="10" />
+    <br />6. <input type="number" size="10" />
+    <br />7. <input type="number" size="10" />
+    <br />8. <input type="number" size="10" />
+    <br />9. <input type="number" size="10" />
+    <br />10. <input type="number" size="10" />
+    <hr />
+    <input type="button" value="Calculate the Average" id="calc_button" />
+    <div id="result"></div>
+</body>
+
+</html>
